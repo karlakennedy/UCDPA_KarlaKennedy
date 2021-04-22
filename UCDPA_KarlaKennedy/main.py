@@ -4,8 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import plotly.express as px
-import pip as ggplot
+
 
 # Importing Datasets & Printing Head to check correctly imported
 df = pd.read_csv('summer_olympic_medals.csv')
@@ -83,7 +82,7 @@ for Year, data in my_dict.items():
 
 #For Loop
 olympic_cycle = [2000, 2004, 2008, 2012, 2016, 2021]
-for year in olympic_cycle :
+for year in olympic_cycle:
     print(year)
     if year == 2000 :
         print("Sydney Olympic Games")
@@ -155,22 +154,22 @@ print(my_dict.head())
 total_country_medals = result.groupby(['Country'])['Medal'].count().reset_index()
 print("Total Country Medals")
 print(type(total_country_medals))
-print(total_country_medals.head())
-print(my_dict.head())
+print(total_country_medals)
 
+print(my_dict.head())
 medal_gdp = pd.merge(my_dict, total_country_medals, on='Country',  how='outer')
 print('Medal/GDP Joined Head: ')
 print(medal_gdp.head())
 # ------------------------------------ Visualisations -------------------------
 
 # Visualising Olympic Athletes % by Gender
-labels = 'Men', 'Women'
+label= 'Men', 'Women'
 size = [22746, 8419]
 my_colors = 'lightblue', 'pink'
 fig1, ax1 = plt.subplots()
 my_explode = (0, 0.1)
-ax1.pie(size, labels=labels, autopct='%1.1f%%', shadow=True, startangle=15, colors=my_colors, explode=my_explode)
-plt.title('Summer Olympic Medalists by Gender')
+ax1.pie(size, labels=label, autopct='%1.1f%%', shadow=True, startangle=15, colors=my_colors, explode=my_explode)
+plt.title('Summer Olympic Medallists by Gender')
 ax1.axis('equal')
 plt.show()
 
@@ -189,7 +188,6 @@ plt.ylabel("Number of Medals Won")
 plt.title("Top 10 Countries for Olympic Medals")
 plt.xlabel("Country")
 plt.show()
-
 
 # Country Medals broken down to Gold, Silver, Bronze
 medal_top=result[["Year", "Country", "Medal"]]
@@ -235,7 +233,7 @@ plt.title('Medals Won by Country over Time')
 plt.show()
 
 # Visualising the correlation between GDP and Medals Won
-fig, scatter = plt.subplots(figsize = (10,6), dpi = 100)
+fig, scatter = plt.subplots(figsize=(10, 6), dpi=100)
 scatter = sns.scatterplot(x="GDP_rounded", y="Medal", hue="Country", size="Medal", legend=False, data=medal_gdp)
 plt.title('Correlation between GDP and Medals Won by Country')
 fig.set_size_inches(10, 8)
