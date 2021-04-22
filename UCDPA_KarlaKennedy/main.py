@@ -217,7 +217,6 @@ ax.set_size_inches(13, 7)
 plt.xlabel("Sport")
 plt.ylabel("Participation Number")
 plt.title('Top 30 Summer Olympic Sports by Participation')
-plt.savefig('top30sports.png', bbox_inches='tight') ;
 plt.tight_layout()
 plt.show()
 
