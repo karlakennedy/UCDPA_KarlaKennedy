@@ -213,10 +213,12 @@ plt.show()
 matplotlib_colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'r', 'b', 'g']
 df.Discipline.value_counts().head(30).plot(kind="bar", color=['b', 'g', 'r', 'c', 'm', 'y', 'k', 'b', 'g'])
 ax=plt.gcf()
-ax.set_size_inches(10, 8)
+ax.set_size_inches(13, 7)
 plt.xlabel("Sport")
 plt.ylabel("Participation Number")
 plt.title('Top 30 Summer Olympic Sports by Participation')
+plt.savefig('top30sports.png', bbox_inches='tight') ;
+plt.tight_layout()
 plt.show()
 
 # Medals Won by Country by Year
