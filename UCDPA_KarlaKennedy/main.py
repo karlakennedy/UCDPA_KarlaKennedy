@@ -143,8 +143,8 @@ print('City Dictionary (2016 added): ', cities_dict)
 population = my_dict["Population"]
 gdp_per_capita = my_dict["GDP_per_Capita"]
 def real_gdp(population, gdp_per_capita):
-    print('The real GPD is:', population, gdp_per_capita)
     return gdp_per_capita/population
+print('The real GPD is:', gdp_per_capita/population)
 
 # Custom Function Attempt Two - round() function
 my_dict['GDP_rounded'] = my_dict['GDP_per_Capita'].round()
@@ -237,13 +237,26 @@ plt.show()
 fig, scatter = plt.subplots(figsize=(10, 6), dpi=100)
 scatter = sns.scatterplot(x="GDP_rounded", y="Medal", hue="Country", size="Medal", legend=False, data=medal_gdp)
 plt.title('Correlation between GDP and Medals Won by Country')
-fig.set_size_inches(10, 8)
+fig.set_size_inches(8, 6)
 plt.show()
 
 # Second Attempt at GDP and Medals
 sns.set_theme(style="white")
 g = sns.relplot(x="GDP_rounded", y="Medal", hue="Country", size="Medal",
             sizes=(40, 400), alpha=.5, palette="muted",
-            height=6, data=medal_gdp)
+            height=6, data=medal_gdp, legend=False)
 plt.title('Correlation between GDP and Medals Won by Country')
+fig.set_size_inches(6, 6)
+plt.tight_layout()
+plt.show()
+
+g = sns.regplot(data=medal_gdp, x="GDP_rounded", y="Medal")
+plt.tight_layout()
+fig.set_size_inches(8, 8)
+plt.show()
+
+#Population and GDP
+g = sns.regplot(data=medal_gdp, x="Population", y="Medal")
+plt.tight_layout()
+fig.set_size_inches(8, 8)
 plt.show()
