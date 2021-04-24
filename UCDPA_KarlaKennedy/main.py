@@ -260,3 +260,5 @@ g = sns.regplot(data=medal_gdp, x="Population", y="Medal")
 plt.tight_layout()
 fig.set_size_inches(8, 8)
 plt.show()
+
+print(" End of Project.")
